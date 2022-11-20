@@ -20,8 +20,10 @@ router.get('/', (req, res) => {
 
 //create
 router.post('/', (req, res) => {
-    res.redirect('places')
+    console.log(req.body)
+    res.send('POST /places')
 })
+
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
