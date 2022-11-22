@@ -9,18 +9,21 @@
                 <link rel='stylesheet' href='/style.css'></link>
             </head>
             <body>
-                <nav>
-                    <ul>
-                        <li>
-                        <a href="/">Home</a>
-                        </li>
-                        <li>
-                        <a href="/places">Places</a>
-                        </li>
-                        <li>
-                        <a href="/places/new">Add Place</a>
-                        </li>
-                    </ul>
+                <nav className='navbar'>
+                    <div className='container-fluid'>
+                        <ul>
+                            <li className='nav-item'>
+                            <a href="/">Home</a>
+                            </li>
+                            <li className='nav-item'>
+                            <a href="/places">Places</a>
+                            </li>
+                            <li className='nav-item'>
+                            <a href="/places/new">Add Place</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </nav>
 
                 {html.children}
