@@ -23,7 +23,7 @@ function new_form () {
                         <label htmlFor="state">State</label>
                         {/* <input className='form-control' id="state" name="state" /> */}
                         <select className='form-control' id="state" name="state">
-                            <option value=''>Select State</option>
+                            <option value=''>USA</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AS">American Samoa</option>
