@@ -9,6 +9,10 @@ const placeSchema = new mongoose.Schema({
   founded: Number
 })
 
+//instance method 
+placeSchema.methods.showEstablished = function () {
+  return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
+}
 //In MongoDB a collection called places will be created
 module.exports = mongoose.model('Place', placeSchema)
 
