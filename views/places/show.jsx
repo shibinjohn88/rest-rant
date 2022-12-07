@@ -11,7 +11,7 @@ function show (data) {
     if (data.place.comments.length) {
         comments = data.place.comments.map( c => {
             return (
-                <div className='border'>
+                <div className='border col-sm-6'>
                     <h2 className='rant'>{c.rant ? 'Rant!' : 'Rave!'}</h2>
                     <h4>{ c.content }</h4>
                     <h3>
@@ -28,7 +28,7 @@ function show (data) {
                 
                 <div className='row'>
                     <div className='col-sm-6'>
-                        <img src={data.place.pic} class="img-fluid" alt="..."/>
+                        <img src={data.place.pic} className="img-fluid" alt="..."/>
                         <h3>
                             Located in {data.place.city}, {data.place.state}
                         </h3>
@@ -44,10 +44,10 @@ function show (data) {
                         <h4>
                             Serving {data.place.cuisines}
                         </h4>
-                        <a href={`${data.id}/edit`} className="btn btn-warning"> 
+                        <a href={`${data.place.id}/edit`} className="btn btn-warning"> 
                         Edit
                         </a>  
-                        <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                        <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                             <button type="submit" className="btn btn-danger">
                                 Delete
                             </button>
@@ -56,10 +56,34 @@ function show (data) {
                     </div>
                 </div>
                 
-                <div>
+                <div className='row'>
                     <h2>Comments</h2>
                     { comments }
                 </div>
+                <h2>Got your Own Rant or Rave?</h2>
+                <form method="POST" action={ `/places/${data.place.id}/comment` }> 
+                <div className="row">
+                <div className="form-group col-sm-12">
+                  <label htmlFor="content">Content</label>
+                  <textarea id="content" name="content" className='form-control'></textarea>
+                </div>
+                </div>
+                <div className="row">
+                    <div className="form-group col-sm-4">
+                    <label htmlFor="author">Author</label>
+                    <input id="author" name="author"/>
+                    </div>
+                    <div className="form-group col-sm-4">
+                    <label htmlFor="stars">Star Rating</label>
+                    <input type="range" step="0.5" min="1" max="5" id="stars" name="stars"/>
+                    </div>
+                    <div className="form-group col-sm-2">
+                    <label htmlFor="rant">Rant?</label>
+                    <input type="checkbox" id="rant" name="rant"/>
+                    </div>
+                </div>
+                <input type="submit" className="btn btn-primary" value="Add Comment" />
+                </form> 
             
                 
             </main>
